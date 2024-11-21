@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créditos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Press Start 2P', sans-serif;
+            height: 100vh;
+        }
+
+        /* Contêiner dos créditos */
+        .credits-container {
+            position: relative;
+            width: 80%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Texto de créditos com animação de rolagem */
+        .credits {
+            display: inline-block;
+            position: absolute;
+            bottom: 0; /* Começa visível no rodapé */
+            animation: scroll 20s linear infinite;
+            font-size: 18px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .credits h2 {
+            margin: 40px 0; /* Maior espaço entre os blocos */
+        }
+
+        /* Estilo para as linhas de nomes */
+        .credits .names {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+
+        .credits .names p {
+            width: 50%;
+            text-align: center;
+            margin: 5px 0;
+        }
+
+        /* Animação de rolagem infinita */
+        @keyframes scroll {
+            0% {
+                bottom: 10; /* Começa visível */
+            }
+            100% {
+                bottom: 100%; /* Sobe até sair da tela */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="credits-container">
+        <div class="credits">
+            <h2>Professores do 1º Ano</h2>
+            <div class="names">
+                <p>Erika de Lima</p> <p>Victor Queiroz</p>
+                <p>Victor</p> <p>Rubens Pinheiro</p>
+                <p>Clóvis Damiano</p> <p>Letícia Orsi</p>
+                <p>Aline Alves</p> <p>Pedro</p>
+                <p>Bruna Carolina</p> <p>Patrícia Nogueira</p>
+                <p>Tais Alcantara</p> <p>Bianca Cruz</p>
+                <p>Rita de Cassia</p> <p>Camila</p>
+            </div>
+
+            <h2>Professores do 2º Ano</h2>
+            <div class="names">
+                <p>Erika de Lima</p> <p>Victor Queiroz</p>
+                <p>Felippe dos Santos</p> <p>Yochio Isobe</p>
+                <p>Clóvis Damiano</p> <p>Márcia Cristina</p>
+                <p>Juliana Bastos</p> <p>Bruno</p>
+                <p>Ingrid Oliveira</p> <p>Cátia de Jesus</p>
+                <p>Flávia Andrade</p> <p>Luis Felipe</p>
+                <p>Bianca Cruz</p> <p>Rita de Cassia</p>
+            </div>
+
+            <h2>Professores do 3º Ano</h2>
+            <div class="names">
+                <p>Giselle Gomes</p> <p>Naja de Oliveira</p>
+                <p>Marcela Torres</p> <p>José Ricardo</p>
+                <p>Clóvis Damiano</p> <p>Robson Zago</p>
+                <p>Francisca de Assiz</p> <p>Thaioa Santana</p>
+                <p>Victor Leite</p> <p>Thais Domingos</p>
+                <p>Luiza de Freitas</p> <p>Diogo Correa</p>
+                <p>Glauco Pereira</p>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>

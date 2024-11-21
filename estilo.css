@@ -1,0 +1,85 @@
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #fff;
+    text-align: left;
+}
+
+canvas#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    z-index: 10;
+}
+
+h1 {
+    font-size: 36px;
+    margin: 0;
+    color: white;
+}
+
+/* Navegação */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav a, .game-button {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(206, 29, 29, 0.2);
+    padding: 10px 20px;
+    border: 4px solid rgba(206, 29, 29, 0.2);
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover, .game-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Botões das páginas de seleção */
+.game-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    z-index: 10;
+}
+
+/* Rodapé */
+footer {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    z-index: 10;
+    font-family: 'Press Start 2P', sans-serif;
+}

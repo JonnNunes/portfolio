@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Integrada</title>
+    <link rel="stylesheet" href="fundo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #000;
+            font-family: 'Press Start 2P', sans-serif;
+            color: #fff;
+            text-align: left;
+        }
+
+        /* Canvas para as partículas */
+        canvas#background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Cabeçalho */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            right: 5%;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 0;
+            color: white;
+        }
+
+        /* Estilo da imagem de perfil */
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        /* Navegação com estilo pixelizado */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            background-color: rgba(206, 29, 29, 0.2);
+            padding: 10px 20px;
+            border-radius: 0;
+            border: 4px solid rgba(206, 29, 29, 0.2); /* Borda pixelizada */
+            box-shadow: 0 0 10px rgba(206, 29, 29, 0.2);
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Nova coluna */
+        .right-column {
+            position: absolute;
+            top: 25%;
+            right: 5%;
+            z-index: 10;
+            background-color: rgba(206, 29, 29, 0.2);
+            border-radius: 0;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            font-family: 'Press Start 2P', sans-serif;
+        }
+
+        /* Quadrado para a foto, nome e currículo */
+        .profile-container {
+            background-color: rgba(206, 29, 29, 0.2);
+            border: 4px solid rgba(206, 29, 29, 0.2);
+            border-radius: 0;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Press Start 2P', sans-serif;
+        }
+
+        /* Estilo do botão de currículo */
+        .curriculo-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: rgba(206, 29, 29, 0.2);
+            border: 4px solid rgba(206, 29, 29, 0.2); /* Borda pixelizada */
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Press Start 2P', sans-serif;
+            transition: background-color 0.3s;
+        }
+
+        .curriculo-button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Rodapé */
+        footer {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            z-index: 10;
+            font-family: 'Press Start 2P', sans-serif;
+        }
+
+        /* Estilo do botão de Créditos */
+        .creditos-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            color: #fff;
+            background-color: rgba(206, 29, 29, 0.2);
+            padding: 10px 20px;
+            border: 4px solid rgba(206, 29, 29, 0.2);
+            border-radius: 0;
+            font-family: 'Press Start 2P', sans-serif;
+            text-decoration: none;
+            font-size: 12px;
+            transition: background-color 0.3s;
+        }
+
+        .creditos-button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Estilo da nova imagem abaixo do título "Bem Vindo" */
+        .welcome-image {
+            display: block;
+            width: 100%;
+            max-width: 500px;  /* Limita o tamanho da imagem */
+            margin: 40px auto;  /* Centraliza a imagem horizontalmente e adiciona margem superior e inferior */
+            position: absolute;
+            top: 50%;  /* Coloca a imagem no meio da tela */
+            left: 50%;  /* Centraliza a imagem horizontalmente */
+            transform: translate(-150%, -50%); /* Ajusta a imagem mais para a esquerda */
+            opacity: 0.5;  /* Torna a imagem semi-transparente */
+            pointer-events: none; /* Impede que a imagem interfira nos eventos de clique, permitindo que as partículas passem por cima */
+        }
+
+        /* Estilo da nova imagem abaixo do currículo */
+        .small-image {
+            display: block;
+            width: 100%;
+            max-width: 150px;  /* Limita o tamanho da imagem */
+            margin: 20px auto;  /* Centraliza a imagem horizontalmente e adiciona margem superior e inferior */
+            opacity: 0.8;  /* Torna a imagem semi-transparente */
+            pointer-events: none; /* Impede que a imagem interfira nos eventos de clique, permitindo que as partículas passem por cima */
+            position: relative;
+            top: 200px;  /* Ajusta a imagem para ficar logo abaixo do currículo */
+        }
+    </style>
+</head>
+<body>
+    <!-- Canvas para as partículas -->
+    <canvas id="background"></canvas>
+
+    <!-- Cabeçalho com Bem-Vindo e Matérias -->
+    <header>
+        <h1>Bem Vindo!!</h1>
+        <nav>
+            <ul>
+                <li><a href="Matematica.html">Matematica</a></li>
+                <li><a href="chs.html">CHS</a></li>
+                <li><a href="Linguagens.html">Linguagens</a></li>
+                <li><a href="iot.html">IOT</a></li>
+                <li><a href="cnt.html">CNT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Nova imagem abaixo do "Bem Vindo" -->
+    <img src="c:\Users\joao.pnsouza1\Downloads\pxArt (2).png" alt="Imagem Bem-Vindo" class="welcome-image">
+
+    <!-- Nova coluna -->
+    <div class="right-column">
+        <div class="profile-container">
+            <img src="c:\Users\joao.pnsouza1\Downloads\6d02b058-7507-430b-87e8-74472834d5ff.png" alt="Foto do Perfil" class="profile-image">
+            <h4>João Pedro Nunes de Souza</h4>
+            <a href="curriculo.html" class="curriculo-button">Currículo</a>
+        </div>
+    </div>
+
+    <!-- Imagem menor abaixo do currículo -->
+    <img src="c:\Users\joao.pnsouza1\Downloads\pxArt (12).png" alt="Imagem Menor" class="small-image">
+
+    <!-- Rodapé -->
+    <footer>
+        <p>Desenvolvido por João Pedro Nunes de Souza</p>
+    </footer>
+
+    <!-- Botão de Créditos -->
+    <a href="creditos.html" class="creditos-button">Créditos</a>
+
+    <!-- Scripts do efeito de partículas -->
+    <script src="particles.js"></script>
+</body>
+</html>
